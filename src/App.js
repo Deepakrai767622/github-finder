@@ -10,16 +10,13 @@ class App extends Component {
     loading: false
   }
 
-  async componentWillMount() {
-
-  }
-
-  async componentDidMount() {
-    console.log('compo mount called')
+  async UNSAFE_componentWillMount() {
 
     this.setState({ loading: true });
 
-    const res = await axios.get('https://api.github.com/users');
+    const res = await axios.get(`https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}
+    &client_secret-$
+    {process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
     console.log('res', res);
     this.setState({ Users: res.data, loading: false });
   }
