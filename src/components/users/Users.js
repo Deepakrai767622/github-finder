@@ -5,6 +5,7 @@ import propTypes from 'prop-types';
 
 
 const Users = ({ users, loading }) => {
+
   if (loading) {
     return <Spinner />
   } else {
